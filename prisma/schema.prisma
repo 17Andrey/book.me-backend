@@ -20,7 +20,10 @@ model Restaurant {
   id          Int       @id @default(autoincrement())
   name        String
   address     String
+  cuisines    String    @default("")
+  price       Int       @default(0)
   description String?
+  image       String?   // путь к файлу изображения
   bookings    Booking[]
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
@@ -38,4 +41,4 @@ model Booking {
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
-} 
+}
